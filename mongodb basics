@@ -1,0 +1,409 @@
+show databases
+admin       40.00 KiB
+bookstore   40.00 KiB
+config     108.00 KiB
+local       96.00 KiB
+use bookstore
+'switched to db bookstore'
+show collections
+books
+db.books.insertOne({title:"title 2",author:"author 2",pages:300,rating:8,geners:["fantacy","magical"]})
+{
+  acknowledged: true,
+  insertedId: ObjectId("6572bdce547d4165ae7d938d")
+}
+db.books.insertMany([{title:"title 3",author:"author 3",pages:600,rating:9,geners:["fantacy","magical"]},{title:"title 4",author:"author 4",pages:400,rating:8,geners:["fantacy","magical"]}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("6572bf2f547d4165ae7d938e"),
+    '1': ObjectId("6572bf2f547d4165ae7d938f")
+  }
+}
+db.books.find().sort({title:1})
+{
+  _id: ObjectId("6572b894f43868ecde0a0bfe"),
+  title: 'book1',
+  author: 'author 1',
+  pages: 500,
+  geners: [
+    'fantacy',
+    'magical'
+  ],
+  rating: 9
+}
+{
+  _id: ObjectId("6572bdce547d4165ae7d938d"),
+  title: 'title 2',
+  author: 'author 2',
+  pages: 300,
+  rating: 8,
+  geners: [
+    'fantacy',
+    'magical'
+  ]
+}
+{
+  _id: ObjectId("6572bf2f547d4165ae7d938e"),
+  title: 'title 3',
+  author: 'author 3',
+  pages: 600,
+  rating: 9,
+  geners: [
+    'fantacy',
+    'magical'
+  ]
+}
+{
+  _id: ObjectId("6572bf2f547d4165ae7d938f"),
+  title: 'title 4',
+  author: 'author 4',
+  pages: 400,
+  rating: 8,
+  geners: [
+    'fantacy',
+    'magical'
+  ]
+}
+db.books.find().sort({title:-1})
+{
+  _id: ObjectId("6572bf2f547d4165ae7d938f"),
+  title: 'title 4',
+  author: 'author 4',
+  pages: 400,
+  rating: 8,
+  geners: [
+    'fantacy',
+    'magical'
+  ]
+}
+{
+  _id: ObjectId("6572bf2f547d4165ae7d938e"),
+  title: 'title 3',
+  author: 'author 3',
+  pages: 600,
+  rating: 9,
+  geners: [
+    'fantacy',
+    'magical'
+  ]
+}
+{
+  _id: ObjectId("6572bdce547d4165ae7d938d"),
+  title: 'title 2',
+  author: 'author 2',
+  pages: 300,
+  rating: 8,
+  geners: [
+    'fantacy',
+    'magical'
+  ]
+}
+{
+  _id: ObjectId("6572b894f43868ecde0a0bfe"),
+  title: 'book1',
+  author: 'author 1',
+  pages: 500,
+  geners: [
+    'fantacy',
+    'magical'
+  ],
+  rating: 9
+}
+db.books.find({rating:{$gt:8}})
+{
+  _id: ObjectId("6572b894f43868ecde0a0bfe"),
+  title: 'book1',
+  author: 'author 1',
+  pages: 500,
+  geners: [
+    'fantacy',
+    'magical'
+  ],
+  rating: 9
+}
+{
+  _id: ObjectId("6572bf2f547d4165ae7d938e"),
+  title: 'title 3',
+  author: 'author 3',
+  pages: 600,
+  rating: 9,
+  geners: [
+    'fantacy',
+    'magical'
+  ]
+}
+db.books.find({rating:{$lt:8}})
+db.books.find({rating:{$lt:8}})
+db.books.find({rating:{$lt:8}})
+db.books.find({rating:{$lt:9}})
+{
+  _id: ObjectId("6572bdce547d4165ae7d938d"),
+  title: 'title 2',
+  author: 'author 2',
+  pages: 300,
+  rating: 8,
+  geners: [
+    'fantacy',
+    'magical'
+  ]
+}
+{
+  _id: ObjectId("6572bf2f547d4165ae7d938f"),
+  title: 'title 4',
+  author: 'author 4',
+  pages: 400,
+  rating: 8,
+  geners: [
+    'fantacy',
+    'magical'
+  ]
+}
+db.books.find({rating:{$lte:8}})
+{
+  _id: ObjectId("6572bdce547d4165ae7d938d"),
+  title: 'title 2',
+  author: 'author 2',
+  pages: 300,
+  rating: 8,
+  geners: [
+    'fantacy',
+    'magical'
+  ]
+}
+{
+  _id: ObjectId("6572bf2f547d4165ae7d938f"),
+  title: 'title 4',
+  author: 'author 4',
+  pages: 400,
+  rating: 8,
+  geners: [
+    'fantacy',
+    'magical'
+  ]
+}
+db.books.find({$or:[{rating:8},{rating:9}]})
+{
+  _id: ObjectId("6572b894f43868ecde0a0bfe"),
+  title: 'book1',
+  author: 'author 1',
+  pages: 500,
+  geners: [
+    'fantacy',
+    'magical'
+  ],
+  rating: 9
+}
+{
+  _id: ObjectId("6572bdce547d4165ae7d938d"),
+  title: 'title 2',
+  author: 'author 2',
+  pages: 300,
+  rating: 8,
+  geners: [
+    'fantacy',
+    'magical'
+  ]
+}
+{
+  _id: ObjectId("6572bf2f547d4165ae7d938e"),
+  title: 'title 3',
+  author: 'author 3',
+  pages: 600,
+  rating: 9,
+  geners: [
+    'fantacy',
+    'magical'
+  ]
+}
+{
+  _id: ObjectId("6572bf2f547d4165ae7d938f"),
+  title: 'title 4',
+  author: 'author 4',
+  pages: 400,
+  rating: 8,
+  geners: [
+    'fantacy',
+    'magical'
+  ]
+}
+db.books.find({or:[{pages:{$lt:400}},{pages:{$gt:500}}]})
+db.books.find({or:[{pages:{$lt:200}},{pages:{$gt:300}}]})
+db.books.find({$or:[{pages:{$lt:200}},{pages:{$gt:300}}]})
+{
+  _id: ObjectId("6572b894f43868ecde0a0bfe"),
+  title: 'book1',
+  author: 'author 1',
+  pages: 500,
+  geners: [
+    'fantacy',
+    'magical'
+  ],
+  rating: 9
+}
+{
+  _id: ObjectId("6572bf2f547d4165ae7d938e"),
+  title: 'title 3',
+  author: 'author 3',
+  pages: 600,
+  rating: 9,
+  geners: [
+    'fantacy',
+    'magical'
+  ]
+}
+{
+  _id: ObjectId("6572bf2f547d4165ae7d938f"),
+  title: 'title 4',
+  author: 'author 4',
+  pages: 400,
+  rating: 8,
+  geners: [
+    'fantacy',
+    'magical'
+  ]
+}
+db.books.find({rating:{$in:[7,8,9]}})
+{
+  _id: ObjectId("6572b894f43868ecde0a0bfe"),
+  title: 'book1',
+  author: 'author 1',
+  pages: 500,
+  geners: [
+    'fantacy',
+    'magical'
+  ],
+  rating: 9
+}
+{
+  _id: ObjectId("6572bdce547d4165ae7d938d"),
+  title: 'title 2',
+  author: 'author 2',
+  pages: 300,
+  rating: 8,
+  geners: [
+    'fantacy',
+    'magical'
+  ]
+}
+{
+  _id: ObjectId("6572bf2f547d4165ae7d938e"),
+  title: 'title 3',
+  author: 'author 3',
+  pages: 600,
+  rating: 9,
+  geners: [
+    'fantacy',
+    'magical'
+  ]
+}
+{
+  _id: ObjectId("6572bf2f547d4165ae7d938f"),
+  title: 'title 4',
+  author: 'author 4',
+  pages: 400,
+  rating: 8,
+  geners: [
+    'fantacy',
+    'magical'
+  ]
+}
+db.books.find({rating:{$in:8}})
+MongoServerError: $in needs an array
+db.books.find({rating:{$nin:8}})
+MongoServerError: $nin needs an array
+db.books.find({rating:{$nin:[8]}})
+{
+  _id: ObjectId("6572b894f43868ecde0a0bfe"),
+  title: 'book1',
+  author: 'author 1',
+  pages: 500,
+  geners: [
+    'fantacy',
+    'magical'
+  ],
+  rating: 9
+}
+{
+  _id: ObjectId("6572bf2f547d4165ae7d938e"),
+  title: 'title 3',
+  author: 'author 3',
+  pages: 600,
+  rating: 9,
+  geners: [
+    'fantacy',
+    'magical'
+  ]
+}
+db.books.find(geners:"fantacy")
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.books.find({geners:"fantacy"})
+{
+  _id: ObjectId("6572b894f43868ecde0a0bfe"),
+  title: 'book1',
+  author: 'author 1',
+  pages: 500,
+  geners: [
+    'fantacy',
+    'magical'
+  ],
+  rating: 9
+}
+{
+  _id: ObjectId("6572bdce547d4165ae7d938d"),
+  title: 'title 2',
+  author: 'author 2',
+  pages: 300,
+  rating: 8,
+  geners: [
+    'fantacy',
+    'magical'
+  ]
+}
+{
+  _id: ObjectId("6572bf2f547d4165ae7d938e"),
+  title: 'title 3',
+  author: 'author 3',
+  pages: 600,
+  rating: 9,
+  geners: [
+    'fantacy',
+    'magical'
+  ]
+}
+{
+  _id: ObjectId("6572bf2f547d4165ae7d938f"),
+  title: 'title 4',
+  author: 'author 4',
+  pages: 400,
+  rating: 8,
+  geners: [
+    'fantacy',
+    'magical'
+  ]
+}
+db.books.find({geners:["fantacy"]})
+db.books.find({geners:{$all:["fantacy","magic"]}})
+db.books.find({geners:{$all:["fantacy","magical"]}})
+{
+  _id: ObjectId("6572b894f43868ecde0a0bfe"),
+  title: 'book1',
+  author: 'author 1',
+  pages: 500,
+  geners: [
+    'fantacy',
+    'magical'
+  ],
+  rating: 9
+}
+{
+  _id: ObjectId("6572bdce547d4165ae7d938d"),
+  title: 'title 2',
+  author: 'author 2',
+  pages: 300,
+  rating: 8,
+  geners: [
+    'fantacy',
+    'magical'
+  ]
+}
