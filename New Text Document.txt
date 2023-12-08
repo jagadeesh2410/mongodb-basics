@@ -1,0 +1,49 @@
+[{
+  "_id": {
+    "$oid": "6572b894f43868ecde0a0bfe"
+  },
+  "title": "book1",
+  "author": "author 1",
+  "pages": 500,
+  "geners": [
+    "fantacy",
+    "magical"
+  ],
+  "rating": 9
+},{
+  "_id": {
+    "$oid": "6572bdce547d4165ae7d938d"
+  },
+  "title": "title 2",
+  "author": "author 2",
+  "pages": 300,
+  "rating": 8,
+  "geners": [
+    "fantacy",
+    "magical"
+  ]
+},{
+  "_id": {
+    "$oid": "6572bf2f547d4165ae7d938e"
+  },
+  "title": "title 3",
+  "author": "author 3",
+  "pages": 600,
+  "rating": 9,
+  "geners": [
+    "fantacy",
+    "magical"
+  ]
+},{
+  "_id": {
+    "$oid": "6572bf2f547d4165ae7d938f"
+  },
+  "title": "title 4",
+  "author": "author 4",
+  "pages": 400,
+  "rating": 8,
+  "geners": [
+    "fantacy",
+    "magical"
+  ]
+}]
